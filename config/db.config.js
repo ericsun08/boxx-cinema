@@ -2,7 +2,7 @@ module.exports = {
     HOST: "database-1.cdk0qz7xfz4x.ap-southeast-2.rds.amazonaws.com",
     PORT: "1433",
     USER: "admin",
-    PASSWORD: "Ashwioon12!",
+    PASSWORD: "Password123!",
     DB: "Boxx_db",
     dialect: "mssql",
     pool: {
