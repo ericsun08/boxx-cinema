@@ -20,7 +20,8 @@ app.use(cors(corsOptions))
 app.use(express.json())
 
 app.use(FileUpload())
-app.use(express.static('public'))
+app.use(express.static('public' + '/tmp'))
+app.use('/tmp', express.static('tmp'));
 
 app.use(express.urlencoded({extended:true}))
 
