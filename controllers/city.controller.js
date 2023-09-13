@@ -22,28 +22,27 @@ exports.createCity = (req, res) => {
     })
 }
 
-exports.getAllCity = (req, res) => {
-    City.findAll({ 
-        include: [
-            {
-                as: 'Theatre',
-                model: Theatre,
-                attributes: [],
-            }
-        ],
-        attributes: [
-            'CityId', 'CityName', [db.Sequelize.fn('COUNT', db.Sequelize.col('Theatre.CityId')), "TotalCinema"]
-        ],
-        group: ['City.CityId', 'City.CityName'],
-        order:[['CityName', 'ASC']]
-     })
-    .then(data => {
-      res.send(data)
-    })
-    .catch(err => {
-      res.status(500).send({
-        message:
-          err.message || "Some error occurred while retrieving cities."
-      })
-    })
+exports.getAllCity = async (req, res) => {
+    try{
+        const response = await City.findAll({ 
+            include: [
+                {
+                    as: 'Theatre',
+                    model: Theatre,
+                    attributes: [],
+                }
+            ],
+            attributes: [
+                'CityId', 'CityName', [db.Sequelize.fn('COUNT', db.Sequelize.col('Theatre.CityId')), "TotalCinema"]
+            ],
+            group: ['City.CityId', 'City.CityName'],
+            order:[['CityName', 'ASC']]
+         })
+         res.status(200).send(response)
+    }catch(err){
+        res.status(500).send({
+            message:
+              err.message || "Some error occurred while retrieving cities."
+          })
+    }
 }
