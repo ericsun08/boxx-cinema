@@ -29,9 +29,7 @@ exports.addMovie = (req, res) => {
 
         if(fileSize > 5000000) return res.status(422).json({message:'Image must be less than 5 MB'})
 
-        const filePath = path.join(__dirname, 'public', 'images', fileName);
-
-        MovieImage.mv(filePath, async(err) => {
+        MovieImage.mv(`./public/images/${fileName}`, async(err) => {
             if(err) return res.status(500).json({message: err.message})
 
             try{
