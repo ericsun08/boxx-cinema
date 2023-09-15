@@ -47,11 +47,11 @@ exports.getScheduleByCity = async (req, res) => {
 
         const filteredTheatres = ScheduleResponse.Theatre.filter(theatre => theatre.Screen.length > 0)
 
-        filteredTheatres.forEach(theatre => {
-            theatre.Screen.forEach(screen => {
-                screen.Show.sort((a, b) => new Date(a.ShowStartTime) - new Date(b.ShowStartTime));
-            });
-        });
+        // filteredTheatres.forEach(theatre => {
+        //     theatre.Screen.forEach(screen => {
+        //         screen.Show.sort((a, b) => new Date(a.ShowStartTime) - new Date(b.ShowStartTime));
+        //     });
+        // });
 
         res.send({Movie: MovieResponse, Schedules: filteredTheatres})
     } catch(err) {
