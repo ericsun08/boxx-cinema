@@ -11,6 +11,8 @@ exports.getScheduleByCity = async (req, res) => {
     const MovieId = req.query.MovieId
     const SelectedDate = req.query.SelectedDate
 
+    let today = new Date()
+
     try{
         const MovieResponse = await Movie.findOne({where: { MovieId: MovieId }, attributes: ['MovieId', 'ImageUrl', 'Title']})
 
@@ -30,7 +32,7 @@ exports.getScheduleByCity = async (req, res) => {
                                     where: {
                                         MovieId:MovieId,
                                         ShowDate: new Date(SelectedDate),
-                                        
+                                        ShowStartTime: { [Op.gt]: today },
                                     },
                                 }
                             ]
