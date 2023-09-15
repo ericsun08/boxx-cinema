@@ -32,7 +32,7 @@ exports.getScheduleByCity = async (req, res) => {
                                     where: {
                                         MovieId:MovieId,
                                         // ShowDate: new Date(SelectedDate),
-                                        // ShowStartTime: { [Op.gt]: today },
+                                        ShowStartTime: { [Op.gt]: today },
                                     },
                                 }
                             ]
