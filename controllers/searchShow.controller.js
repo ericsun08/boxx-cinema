@@ -31,8 +31,8 @@ exports.getScheduleByCity = async (req, res) => {
                                     model: Show,
                                     where: {
                                         MovieId:MovieId,
-                                        // ShowDate: new Date(SelectedDate),
-                                        ShowStartTime: { [Op.gt]: today },
+                                        ShowDate: new Date(SelectedDate),
+                                        //ShowStartTime: { [Op.gt]: today },
                                     },
                                 }
                             ]
