@@ -12,7 +12,7 @@ db.sequelize.sync();
 //   });
 
 const corsOptions = {
-    origin: "http://localhost:3000"
+    origin: "https://master.dty3ymdh6lkh0.amplifyapp.com"
 }
 
 app.use(cors(corsOptions))
