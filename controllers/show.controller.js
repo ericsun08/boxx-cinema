@@ -24,12 +24,8 @@ exports.addShow = async (req, res) => {
 
       const show = {
         ShowDate: loopDate,
-        ShowStartTime: formattedStartDate.toLocaleString("en-US", {
-          timeZone: "UTC", // Set the desired time zone
-        }),
-        ShowEndTime: formattedEndDate.toLocaleString("en-US", {
-          timeZone: "UTC", // Set the desired time zone
-        }),
+        ShowStartTime: formattedStartDate,
+        ShowEndTime: formattedEndDate,
         ScreenId: req.body.ScreenId,
         MovieId: req.body.MovieId
       }
