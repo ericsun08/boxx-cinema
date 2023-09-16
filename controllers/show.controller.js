@@ -15,10 +15,9 @@ exports.addShow = async (req, res) => {
   const endHours = parseInt(endTimeParts[0], 10);
   const endMinutes = parseInt(endTimeParts[1], 10);
 
-  let showDate = new Date(startDate)
   let loopDate = new Date(startDate)
 
-  showDate.setUTCHours(0);
+  loopDate.setUTCHours(0);
 
   try{
     while(loopDate <= endDate){
@@ -26,7 +25,7 @@ exports.addShow = async (req, res) => {
       const formattedEndDate = new Date(loopDate.getFullYear(), loopDate.getMonth(), loopDate.getDate(), endHours, endMinutes);
 
       const show = {
-        ShowDate: showDate.toISOString(),
+        ShowDate: loopDate.toISOString(),
         ShowStartTime: formattedStartDate,
         ShowEndTime: formattedEndDate,
         ScreenId: req.body.ScreenId,
